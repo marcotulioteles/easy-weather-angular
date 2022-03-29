@@ -1,0 +1,95 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5rem;
+
+  .app-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .app-name {
+      display: flex;
+      font-size: 1.5rem;
+      margin-top: 0.75rem;
+
+      h1 {
+        &:first-child {
+          font-family: "Archivo Black";
+        }
+
+        &:last-child {
+          font-family: "Montserrat";
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .date-info {
+    display: flex;
+    align-items: center;
+    margin-top: 1.125rem;
+    font-size: 0.875rem;
+
+    p {
+      margin-left: 0.75rem;
+    }
+  }
+
+  .search-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    div {
+      margin-bottom: 0.75rem;
+      position: relative;
+
+      input {
+        width: 100%;
+        height: 2.25rem;
+        border-radius: 0.5rem;
+        padding-left: 0.75rem;
+        background-color: #0e1d28;
+        border: 1px solid #2a9dc1;
+        color: #fff;
+        font-size: 1rem;
+        font-family: "Montserrat", "Arial", "Helvetica", sans-serif;
+
+        &::placeholder {
+          color: #a7c0d8;
+          font-size: 0.85rem;
+        }
+
+        &::-moz-placeholder {
+          color: #a7c0d8;
+          font-size: 0.85rem;
+        }
+
+        &::-webkit-input-placeholder {
+          color: #a7c0d8;
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    button {
+      height: 2.25rem;
+      border-radius: 0.5rem;
+      background-color: #2ac18b;
+      border: none;
+      font-size: 1rem;
+      font-family: "Montserrat", "Arial", "Helvetica", sans-serif;
+      transition: background-color 0.2s ease-in, color 0.2s ease-in;
+
+      &:hover {
+        background-color: #1f9e71;
+        color: #ffffff;
+      }
+    }
+  }
+}
