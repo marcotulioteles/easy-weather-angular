@@ -6,6 +6,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

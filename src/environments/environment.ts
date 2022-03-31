@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  openWeatherAppId: 'ddcdb9a0329e7d6fc827511a021e0431'
 };
 
 /*

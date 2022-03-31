@@ -10,12 +10,15 @@
     <svg-icon src="assets/images/calendar.svg" [svgStyle]="{ 'width.rem': 2 }"></svg-icon>
     <p>Feburary 24, 2022 at 8:27am</p>
   </div>
-  <form class="search-form">
+  <form class="search-form" (ngSubmit)="submit()">
     <div>
       <svg-icon src="assets/images/search.svg"
         [svgStyle]="{ 'width.rem': 1.2, 'position': 'absolute', 'top.rem': .25, 'right.rem': .75 }"></svg-icon>
-      <input type="text" placeholder="Your location (e.g.: New York, NY, United States">
+      <input type="text" placeholder="Your location (e.g.: New York, NY, United States" id="location" name="location" [(ngModel)]="locationInputValue">
     </div>
     <button type="submit">search</button>
   </form>
 </header>
+<div *ngIf="forecastData">
+  <p>{{forecastData?.current?.temp}}</p>
+</div>
