@@ -1,0 +1,28 @@
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .forecast-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.125rem;
+    padding: 0 1.5rem 1.5rem;
+    border-radius: 1rem;
+    background: radial-gradient(
+      100% 1406.25% at 0% 100%,
+      #0e1d28 32.8%,
+      #274359 73.51%
+    );
+
+    h2 {
+      font-size: 1.125rem;
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      color: #a7c0d8;
+      margin-top: 1.5rem;
+    }
+  }
+}
