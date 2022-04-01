@@ -9,12 +9,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ForecastCardboardComponent } from './components/forecast-cardboard/forecast-cardboard.component';
 import { ForecastService } from './services/forecast.service';
+import { HourlyForecastsComponent } from './components/hourly-forecasts/hourly-forecasts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ForecastCardboardComponent
+    ForecastCardboardComponent,
+    HourlyForecastsComponent
   ],
   imports: [
     BrowserModule,

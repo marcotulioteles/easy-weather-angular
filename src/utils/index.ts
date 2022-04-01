@@ -1,6 +1,8 @@
 export const formatForecastData = (data: any) => {
   const dataFormatted = {
-    temp: data.current.temp,
+    temp_celsius: convertKelvinToCelsius(data.current.temp),
+    temp_kelvin: Number(data.current.temp),
+    temp_fahrenheit: convertKelvinToFarenheit(Number(data.current.temp)),
     humidity: data.current.humidity,
     clouds: data.current.clouds,
     wind_speed: data.current.wind_speed,
@@ -9,21 +11,30 @@ export const formatForecastData = (data: any) => {
     hourly: data.hourly.map((item: any) => {
       return {
         dt: item.dt,
-        temp: item.temp,
+        temp: convertKelvinToCelsius(item.temp),
         icon: item.weather[0].icon
       }
     }),
     daily: data.daily.map((item: any) => {
       return {
         dt: item.dt,
-        temp: item.temp.day,
-        max: item.temp.max,
-        min: item.temp.min,
+        temp: convertKelvinToCelsius(item.temp.day),
+        max: convertKelvinToCelsius(item.temp.max),
+        min: convertKelvinToCelsius(item.temp.min),
         icon: item.weather[0].icon
       }
     })
   };
 
-  console.log('DATA_FORMATED: ', dataFormatted);
   return dataFormatted;
+}
+
+export const convertKelvinToCelsius = (KELVIN: number) => {
+  const CELSIUS = (KELVIN -273.15).toFixed(0);
+  return Number(CELSIUS);
+}
+
+export const convertKelvinToFarenheit = (KELVIN: number) => {
+  const FAHRENHEIT = ((KELVIN - 273.15) * (9/5) + 32).toFixed(1);
+  return Number(FAHRENHEIT);
 }

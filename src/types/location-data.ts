@@ -7,26 +7,28 @@ export interface LocationData {
 }
 
 export interface ForecastData {
-  temp: number;
-    humidity: number;
-    clouds: number;
-    wind_speed: number;
-    icon: string;
-    description: string;
-    hourly: [
-      {
-        dt: number;
-        temp: number;
-        icon: string;
-      }
-    ];
-    daily: [
-      {
-        dt: number;
-        temp: number;
-        max: number;
-        min: number;
-        icon: string;
-      }
-    ]
+  temp_celsius: number;
+  temp_fahrenheit: number;
+  temp_kelvin: number;
+  humidity: number;
+  clouds: number;
+  wind_speed: number;
+  icon: string;
+  description: string;
+  hourly: [
+    {
+      dt: number;
+      temp: number;
+      icon: string;
+    }
+  ];
+  daily: [
+    {
+      dt: number;
+      temp: number;
+      max: number;
+      min: number;
+      icon: string;
+    }
+  ]
 }
