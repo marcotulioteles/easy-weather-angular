@@ -11,10 +11,10 @@ export class ForecastCardboardComponent implements OnInit {
   forecastData = {} as ForecastData;
 
   constructor(private forecastService: ForecastService) {
-
+    console.log('DATA_FROM_FORECAST-CARDBOARD: ', this.forecastService.getForecastData())
   }
 
   ngOnInit(): void {
-    this.forecastData = this.forecastService.getForecastData();
+    this.forecastService.getForecastData().subscribe(forecast => this.forecastData = forecast);
   }
 }
