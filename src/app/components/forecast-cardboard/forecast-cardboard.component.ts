@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ForecastService } from 'src/app/services/forecast.service';
+import { ForecastData } from 'src/types/location-data';
 
 @Component({
   selector: 'app-forecast-cardboard',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forecast-cardboard.component.scss']
 })
 export class ForecastCardboardComponent implements OnInit {
+  forecastData = {} as ForecastData;
 
-  constructor() { }
+  constructor(private forecastService: ForecastService) {
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+    this.forecastData = this.forecastService.getForecastData();
+  }
 }

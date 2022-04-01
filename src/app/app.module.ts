@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ForecastCardboardComponent } from './components/forecast-cardboard/forecast-cardboard.component';
+import { ForecastService } from './services/forecast.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ForecastCardboardComponent } from './components/forecast-cardboard/fore
     AngularSvgIconModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [ForecastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

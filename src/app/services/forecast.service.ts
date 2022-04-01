@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { formatForecastData } from 'src/utils';
+import { ForecastData, LocationData } from 'src/types/location-data';
+import { LocationService } from './location.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForecastService {
   private url: string = 'http://api.openweathermap.org/data/2.5';
+  forecastData = {} as ForecastData;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private locationService: LocationService) { }
 
-  getForecast(lat: number, lon: number) {
-    return this.http.get<any>(`${this.url}/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${environment.openWeatherAppId}`);
+  fetchForecast(location: string) {
+    this.locationService.getLocationCoordinates(location)
+      .subscribe((data:LocationData[]) => this.http.get<any>(`${this.url}/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely,alerts&appid=${environment.openWeatherAppId}`)
+        .subscribe(data => this.forecastData = formatForecastData(data)));
+  }
+
+  getForecastData() {
+    return this.forecastData;
   }
 }
