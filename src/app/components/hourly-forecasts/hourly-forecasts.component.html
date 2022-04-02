@@ -1,0 +1,10 @@
+<section class="container">
+  <h2>hourly forecasts</h2>
+  <div class="hourly-container">
+    <div class="hourly-item" *ngFor="let hourly of hourlyList">
+      <span>18:00</span>
+      <svg-icon src="assets/images/forecast-icons/01n.svg" [svgStyle]="{'height.rem': 2.5, 'width.rem': 2.5}"></svg-icon>
+      <span>28°C</span>
+    </div>
+  </div>
+</section>
