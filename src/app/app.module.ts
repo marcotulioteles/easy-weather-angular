@@ -10,13 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { ForecastCardboardComponent } from './components/forecast-cardboard/forecast-cardboard.component';
 import { ForecastService } from './services/forecast.service';
 import { HourlyForecastsComponent } from './components/hourly-forecasts/hourly-forecasts.component';
+import { DailyForecastsComponent } from './components/daily-forecasts/daily-forecasts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ForecastCardboardComponent,
-    HourlyForecastsComponent
+    HourlyForecastsComponent,
+    DailyForecastsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <ng-template #showEmpty></ng-template>
-<div class="container" *ngIf="forecastData?.temp_celsius; else showEmpty">
+<section class="container" *ngIf="forecastData?.temp_celsius; else showEmpty">
   <h1>today</h1>
   <div class="content">
     <div class="info-wrapper">
@@ -74,4 +74,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>
