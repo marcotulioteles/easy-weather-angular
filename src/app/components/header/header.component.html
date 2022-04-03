@@ -16,7 +16,7 @@
       <div>
         <svg-icon src="assets/images/search.svg"
           [svgStyle]="{ 'width.rem': 1.2, 'position': 'absolute', 'top.rem': .25, 'right.rem': .75 }"></svg-icon>
-        <input type="text" placeholder="Your location (e.g.: New York, NY, United States" id="location" name="location" [(ngModel)]="locationInputValue">
+        <input type="text" placeholder="e.g.: São Paulo or São Paulo, BR" id="location" name="location" [(ngModel)]="locationInputValue">
       </div>
       <button type="submit" [disabled]="isLoading">search</button>
     </form>
