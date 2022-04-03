@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { buildForecastData } from 'src/utils';
 import { ForecastData, LocationData } from 'src/types/location-data';
 import { Subject } from 'rxjs';
