@@ -13,6 +13,7 @@ import { HourlyForecastsComponent } from './components/hourly-forecasts/hourly-f
 import { DailyForecastsComponent } from './components/daily-forecasts/daily-forecasts.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
 import { LoadingCardboardComponent } from './components/loading-cardboard/loading-cardboard.component';
+import { ForecastContentComponent } from './components/forecast-content/forecast-content.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoadingCardboardComponent } from './components/loading-cardboard/loadin
     HourlyForecastsComponent,
     DailyForecastsComponent,
     EmptyStateComponent,
-    LoadingCardboardComponent
+    LoadingCardboardComponent,
+    ForecastContentComponent
   ],
   imports: [
     BrowserModule,

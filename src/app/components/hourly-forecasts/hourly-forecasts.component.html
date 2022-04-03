@@ -1,5 +1,4 @@
-<ng-template #emptyState></ng-template>
-<section class="container" *ngIf="forecastData?.hourly && showContainer; else emptyState">
+<section class="container" *ngIf="forecastData?.hourly">
   <div class="location-info">
     <p>{{locationData.name}}</p>
     <img

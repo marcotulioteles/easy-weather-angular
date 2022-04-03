@@ -1,0 +1,15 @@
+<ng-template #showEmpty>
+  <app-empty-state></app-empty-state>
+</ng-template>
+<app-loading-cardboard></app-loading-cardboard>
+<div class="container" *ngIf="forecastData.description && showContainer; else showEmpty">
+  <app-forecast-cardboard
+    [forecastData]="forecastData"
+    [locationData]="locationData"></app-forecast-cardboard>
+  <app-hourly-forecasts
+    [forecastData]="forecastData"
+    [locationData]="locationData"></app-hourly-forecasts>
+  <app-daily-forecasts
+    [forecastData]="forecastData"
+    [locationData]="locationData"></app-daily-forecasts>
+</div>

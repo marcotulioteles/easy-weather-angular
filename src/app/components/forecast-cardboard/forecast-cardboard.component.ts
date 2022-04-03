@@ -1,7 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ForecastService } from 'src/app/services/forecast.service';
-import { LoadingService } from 'src/app/services/loading.service';
-import { LocationService } from 'src/app/services/location.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { ForecastData, LocationData } from 'src/types/location-data';
 
 @Component({
@@ -10,32 +7,11 @@ import { ForecastData, LocationData } from 'src/types/location-data';
   styleUrls: ['./forecast-cardboard.component.scss']
 })
 export class ForecastCardboardComponent implements OnInit {
-  forecastData = {} as ForecastData;
-  locationData = {} as LocationData;
-  showContainer = true;
+  @Input() forecastData = {} as ForecastData;
+  @Input() locationData = {} as LocationData;
 
-  constructor(
-    private forecastService: ForecastService,
-    private locationService: LocationService,
-    private loadingService: LoadingService,
-    private cdRef: ChangeDetectorRef
-  ) {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.forecastService.getForecastData().subscribe(forecast => {
-      if (forecast) this.forecastData = forecast;
-    });
-    this.locationService.getLocationData().subscribe(location => this.locationData = location);
-    this.manageShowContainer();
-  }
-
-  manageShowContainer() {
-    this.loadingService.getLoadingObserver().subscribe(status => {
-      if(status === 'start') this.showContainer = false;
-      else this.showContainer = true;
-
-      this.cdRef.detectChanges();
-    })
   }
 }

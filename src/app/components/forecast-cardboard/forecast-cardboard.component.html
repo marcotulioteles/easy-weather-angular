@@ -1,8 +1,4 @@
-<ng-template class="empty-state" #showEmpty>
-  <app-empty-state></app-empty-state>
-</ng-template>
-<app-loading-cardboard></app-loading-cardboard>
-<section class="container" *ngIf="forecastData?.description; else showEmpty">
+<section class="container">
   <div class="location-info">
     <p>{{locationData.name}}</p>
     <img
