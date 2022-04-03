@@ -1,5 +1,15 @@
-<ng-template #showEmpty></ng-template>
-<section class="container" *ngIf="forecastData?.temp_celsius; else showEmpty">
+<ng-template class="empty-state" #showEmpty>
+  <app-empty-state></app-empty-state>
+</ng-template>
+<app-loading-cardboard></app-loading-cardboard>
+<section class="container" *ngIf="forecastData?.description; else showEmpty">
+  <div class="location-info">
+    <p>{{locationData.name}}</p>
+    <img
+      src="https://flagcdn.com/w40/{{locationData.country.toLowerCase()}}.png"
+      alt="{{locationData.country}} flag"
+    >
+  </div>
   <h1>today</h1>
   <div class="content">
     <div class="info-wrapper">
@@ -63,14 +73,14 @@
           src="assets/images/arrow-down.svg"
           [svgStyle]="{'height.rem': 1.125, 'display': 'flex'}"
         ></svg-icon>
-        <span>{{forecastData.temp_celsius}}°C</span>
+        <span>{{forecastData.daily[0].min}}°C</span>
       </div>
       <div class="min-max-temp-child">
         <svg-icon
           src="assets/images/arrow-up.svg"
           [svgStyle]="{'height.rem': 1.125, 'display': 'flex'}"
         ></svg-icon>
-        <span>{{forecastData.temp_celsius}}°C</span>
+        <span>{{forecastData.daily[0].max}}°C</span>
       </div>
     </div>
   </div>

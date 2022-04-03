@@ -7,10 +7,9 @@
     </div>
   </div>
   <div class="date-info">
-    <svg-icon src="assets/images/calendar.svg" [svgStyle]="{ 'width.rem': 2 }"></svg-icon>
-    <p>Feburary 24, 2022 at 8:27am</p>
+    <p>{{forecastData.dt_intl_long_format}}</p>
   </div>
-  <form class="search-form" (ngSubmit)="submit()">
+  <form class="search-form" (ngSubmit)="submitGetForecastData()">
     <div>
       <svg-icon src="assets/images/search.svg"
         [svgStyle]="{ 'width.rem': 1.2, 'position': 'absolute', 'top.rem': .25, 'right.rem': .75 }"></svg-icon>

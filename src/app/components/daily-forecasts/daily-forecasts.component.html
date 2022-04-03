@@ -1,17 +1,25 @@
-<section class="container">
-  <h2>next 7 days</h2>
+<ng-template #emptyState></ng-template>
+<section class="container" *ngIf="forecastData?.hourly && showContainer; else emptyState">
+  <div class="location-info">
+    <p>{{locationData.name}}</p>
+    <img
+      src="https://flagcdn.com/w40/{{locationData.country.toLowerCase()}}.png"
+      alt="{{locationData.country}} flag"
+    >
+  </div>
+  <h1>next 7 days</h1>
   <div class="daily-container">
-    <div class="daily-item" >
-      <span>Friday</span>
-      <svg-icon src="assets/images/forecast-icons/01d.svg" [svgStyle]="{'width.rem': 3, 'height.rem': 3}"></svg-icon>
+    <div class="daily-item" *ngFor="let day of forecastData?.daily">
+      <span>{{day.day_string}}</span>
+      <svg-icon src="assets/images/forecast-icons/{{day.icon}}.svg" [svgStyle]="{'width.rem': 2, 'height.rem': 2}"></svg-icon>
       <div class="daily-min-max">
         <div>
-          <svg-icon src="assets/images/arrow-up.svg" [svgStyle]="{'width.rem': 1, 'height.rem': 1}"></svg-icon>
-          <span>21°C</span>
+          <svg-icon src="assets/images/arrow-down.svg" [svgStyle]="{'width.rem': 1, 'height.rem': 1}"></svg-icon>
+          <span>{{day.min}}°C</span>
         </div>
         <div>
           <svg-icon src="assets/images/arrow-up.svg" [svgStyle]="{'width.rem': 1, 'height.rem': 1}"></svg-icon>
-          <span>21°C</span>
+          <span>{{day.max}}°C</span>
         </div>
       </div>
     </div>

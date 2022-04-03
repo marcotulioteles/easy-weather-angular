@@ -1,4 +1,19 @@
 .container {
+  .location-info {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+
+    img {
+      width: 1.25rem;
+      height: 1.25rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-left: 0.25rem;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,28 +30,32 @@
   backdrop-filter: blur(2rem);
   border: 1px solid rgba(255, 255, 255, 0.1);
 
+  h1 {
+    font-size: 1.125rem;
+    text-transform: capitalize;
+    margin-bottom: 0.75rem;
+  }
+
   .daily-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     min-width: calc(18.5rem * 0.9);
     margin-top: 1rem;
 
     .daily-item {
-      width: 100%;
+      max-width: 100%;
+      max-height: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin: 0 0.5rem 0.75rem;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid #576675;
 
       .daily-min-max {
+        width: 7rem;
         display: flex;
-
-        div {
-          &:first-child {
-            margin-right: 1rem;
-          }
-        }
       }
     }
   }

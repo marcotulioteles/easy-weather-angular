@@ -1,4 +1,20 @@
 .container {
+  .location-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+
+    img {
+      width: 1.25rem;
+      height: 1.25rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-left: 0.25rem;
+    }
+  }
+
   text-align: center;
   max-width: 18.5rem;
   background: linear-gradient(
@@ -11,6 +27,12 @@
   border-radius: 0.75rem;
   backdrop-filter: blur(2rem);
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  h1 {
+    font-size: 1.125rem;
+    text-transform: capitalize;
+    margin-bottom: 0.75rem;
+  }
 
   .hourly-container {
     display: flex;

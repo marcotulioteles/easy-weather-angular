@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ForecastService } from 'src/app/services/forecast.service';
+import { LoadingService } from 'src/app/services/loading.service';
+import { LocationService } from 'src/app/services/location.service';
+import { ForecastData, LocationData } from 'src/types/location-data';
 
 @Component({
   selector: 'app-hourly-forecasts',
@@ -6,11 +10,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hourly-forecasts.component.scss']
 })
 export class HourlyForecastsComponent implements OnInit {
-  hourlyList: any[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+  forecastData = {} as ForecastData;
+  locationData = {} as LocationData;
+  showContainer = true;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private forecastService: ForecastService,
+    private locationService: LocationService,
+    private loadingService: LoadingService,
+    private cdRef: ChangeDetectorRef
+  ) {
   }
 
+  ngOnInit(): void {
+    this.forecastService.getForecastData().subscribe(data => this.forecastData = data);
+    this.locationService.getLocationData().subscribe(data => this.locationData = data);
+    this.manageShowContainer();
+  }
+
+  manageShowContainer() {
+    this.loadingService.getLoadingObserver().subscribe(status => {
+      if(status === 'start') this.showContainer = false;
+      else this.showContainer = true;
+
+      this.cdRef.detectChanges();
+    })
+  }
 }
