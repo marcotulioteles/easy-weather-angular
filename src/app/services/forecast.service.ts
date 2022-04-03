@@ -26,19 +26,21 @@ export class ForecastService {
     this.loadingService.requestStarted();
     this.http.get<LocationData[]>(`${this.urlGetLocationCoordinates}/direct?q=${location}&appid=${environment.openWeatherAppId}`)
       .subscribe({
-        next: (data:LocationData[]) => {
-          data.length === 0 ? this.locationIsEmpty.next(true) : this.locationIsEmpty.next(false);
+        next: (locationDataFetched: LocationData[]) => {
+          locationDataFetched.length === 0 ? this.locationIsEmpty.next(true) : this.locationIsEmpty.next(false);
 
-          this.http.get<any>(`${this.urlGetForecast}/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely,alerts&appid=${environment.openWeatherAppId}`)
-          .subscribe({
-            next: data => this.forecastData.next(buildForecastData(data)),
-            error: e => {
-              console.error(e);
-              this.loadingService.resetLoading();
-            },
-            complete: () => this.loadingService.requestEnded()
-          });
-          this.locationData.next(data[0]);
+          if (locationDataFetched.length > 0) {
+          this.http.get<any>(`${this.urlGetForecast}/onecall?lat=${locationDataFetched[0].lat}&lon=${locationDataFetched[0].lon}&exclude=minutely,alerts&appid=${environment.openWeatherAppId}`)
+            .subscribe({
+              next: forecastDataFetched => this.forecastData.next(buildForecastData(forecastDataFetched)),
+              error: e => {
+                console.error(e);
+                this.loadingService.resetLoading();
+              },
+              complete: () => this.loadingService.requestEnded()
+            });
+          this.locationData.next(locationDataFetched[0]);
+          }
         },
         error: e => {
           console.error(e);

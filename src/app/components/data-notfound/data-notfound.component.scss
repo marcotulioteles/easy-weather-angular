@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(
+    158.55deg,
+    rgba(255, 255, 255, 0.15) 2.41%,
+    rgba(196, 196, 196, 0) 100%
+  );
+  border: 1px solid #d5d788;
+  border-radius: 0.75rem;
+  margin-top: 3rem;
+
+  p {
+    max-width: 26.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem 1.5rem;
+  }
+
+  img {
+    margin-top: 2rem;
+  }
+}

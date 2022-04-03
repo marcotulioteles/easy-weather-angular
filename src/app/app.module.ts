@@ -14,6 +14,7 @@ import { DailyForecastsComponent } from './components/daily-forecasts/daily-fore
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
 import { LoadingCardboardComponent } from './components/loading-cardboard/loading-cardboard.component';
 import { ForecastContentComponent } from './components/forecast-content/forecast-content.component';
+import { DataNotfoundComponent } from './components/data-notfound/data-notfound.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ForecastContentComponent } from './components/forecast-content/forecast
     DailyForecastsComponent,
     EmptyStateComponent,
     LoadingCardboardComponent,
-    ForecastContentComponent
+    ForecastContentComponent,
+    DataNotfoundComponent
   ],
   imports: [
     BrowserModule,
