@@ -10,8 +10,8 @@ import { LoadingService } from './loading.service';
   providedIn: 'root'
 })
 export class ForecastService {
-  private urlGetForecast: string = 'http://api.openweathermap.org/data/2.5';
-  private urlGetLocationCoordinates: string = `http://api.openweathermap.org/geo/1.0`;
+  private urlGetForecast: string = 'https://api.openweathermap.org/data/2.5';
+  private urlGetLocationCoordinates: string = `https://api.openweathermap.org/geo/1.0`;
 
   private forecastData = new Subject<ForecastData>();
   private locationIsEmpty = new Subject<boolean>();
