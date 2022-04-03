@@ -11,4 +11,10 @@
     #0e1d28 32.8%,
     #274359 73.51%
   );
+
+  @media (min-width: 992px) {
+    max-width: 1200px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
