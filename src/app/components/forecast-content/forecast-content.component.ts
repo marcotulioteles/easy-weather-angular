@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ForecastService } from 'src/app/services/forecast.service';
 import { LoadingService } from 'src/app/services/loading.service';
-import { LocationService } from 'src/app/services/location.service';
 import { ForecastData, LocationData } from 'src/types/location-data';
 
 @Component({
@@ -13,10 +12,10 @@ export class ForecastContentComponent implements OnInit {
   forecastData = {} as ForecastData;
   locationData = {} as LocationData;
   showContainer = true;
+  locationIsEmpty = false;
 
   constructor(
     private forecastService: ForecastService,
-    private locationService: LocationService,
     private loadingService: LoadingService,
     private cdRef: ChangeDetectorRef
   ) { }
@@ -25,16 +24,40 @@ export class ForecastContentComponent implements OnInit {
     this.getForecastData();
     this.getLocationData();
     this.manageShowContainer();
+    this.getLocationIsEmptyState();
   }
 
   getForecastData() {
     this.forecastService.getForecastData()
-    .subscribe(forecast => this.forecastData = forecast);
+    .subscribe({
+      next: forecast => {
+        this.forecastData = forecast;
+      },
+      error: e => {
+        console.error(e);
+        this.loadingService.resetLoading();
+      },
+      complete: () => this.loadingService.requestEnded()
+    });
   }
 
   getLocationData() {
-    this.locationService.getLocationData()
-    .subscribe(location => this.locationData = location);
+    this.forecastService.getLocationData()
+    .subscribe({
+      next: location => {
+        this.loadingService.requestStarted();
+        this.locationData = location
+      },
+      error: e => {
+        console.error(e);
+        this.loadingService.resetLoading();
+      },
+      complete: () => this.loadingService.requestEnded()
+    });
+  }
+
+  getLocationIsEmptyState() {
+    this.forecastService.getLocationIsEmpty().subscribe(state => this.locationIsEmpty = state);
   }
 
   manageShowContainer() {

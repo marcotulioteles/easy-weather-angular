@@ -2,7 +2,7 @@
   <app-empty-state></app-empty-state>
 </ng-template>
 <app-loading-cardboard></app-loading-cardboard>
-<div class="container" *ngIf="forecastData.description && showContainer; else showEmpty">
+<div class="container" *ngIf="forecastData.description && showContainer && !locationIsEmpty; else showEmpty">
   <app-forecast-cardboard
     [forecastData]="forecastData"
     [locationData]="locationData"></app-forecast-cardboard>

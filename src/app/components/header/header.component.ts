@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ForecastService } from 'src/app/services/forecast.service';
-import { LocationService } from 'src/app/services/location.service';
-import { ForecastData, LocationData } from 'src/types/location-data';
-import { buildForecastData } from 'src/utils';
+import { ForecastData } from 'src/types/location-data';
 
 @Component({
   selector: 'app-header',

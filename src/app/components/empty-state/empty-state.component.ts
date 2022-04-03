@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ForecastService } from 'src/app/services/forecast.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -8,14 +9,17 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class EmptyStateComponent implements OnInit {
   showEmptyState = true;
+  locationIsEmpty = false;
 
   constructor(
     private loadingService: LoadingService,
+    private forecastService: ForecastService,
     private cdRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
     this.manageHideEmptyState();
+    this.getLocationIsEmpty();
   }
 
   manageHideEmptyState() {
@@ -24,5 +28,9 @@ export class EmptyStateComponent implements OnInit {
       else this.showEmptyState = true;
       this.cdRef.detectChanges();
     });
+  }
+
+  getLocationIsEmpty() {
+    this.forecastService.getLocationIsEmpty().subscribe(state => this.locationIsEmpty = state);
   }
 }
