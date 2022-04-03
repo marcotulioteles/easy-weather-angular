@@ -1,20 +1,24 @@
-<header class="container">
-  <div class="app-name-wrapper">
-    <svg-icon src="assets/images/easy-weather-logo.svg" [svgStyle]="{ 'width.px': 100 }"></svg-icon>
-    <div class="app-name">
-      <h1>Easy</h1>
-      <h1>Weather</h1>
+<div class="container">
+  <header class="content">
+    <div class="app-name-container">
+      <div class="app-name-wrapper">
+        <svg-icon src="assets/images/easy-weather-logo.svg" [svgStyle]="{ 'width.px': 100 }"></svg-icon>
+        <div class="app-name">
+          <h1>Easy</h1>
+          <h1>Weather</h1>
+        </div>
+      </div>
+      <div class="date-info">
+        <p>{{forecastData.dt_intl_long_format}}</p>
+      </div>
     </div>
-  </div>
-  <div class="date-info">
-    <p>{{forecastData.dt_intl_long_format}}</p>
-  </div>
-  <form class="search-form" (ngSubmit)="submitGetForecastData()">
-    <div>
-      <svg-icon src="assets/images/search.svg"
-        [svgStyle]="{ 'width.rem': 1.2, 'position': 'absolute', 'top.rem': .25, 'right.rem': .75 }"></svg-icon>
-      <input type="text" placeholder="Your location (e.g.: New York, NY, United States" id="location" name="location" [(ngModel)]="locationInputValue">
-    </div>
-    <button type="submit">search</button>
-  </form>
-</header>
+    <form class="search-form" (ngSubmit)="submitGetForecastData()">
+      <div>
+        <svg-icon src="assets/images/search.svg"
+          [svgStyle]="{ 'width.rem': 1.2, 'position': 'absolute', 'top.rem': .25, 'right.rem': .75 }"></svg-icon>
+        <input type="text" placeholder="Your location (e.g.: New York, NY, United States" id="location" name="location" [(ngModel)]="locationInputValue">
+      </div>
+      <button type="submit" [disabled]="isLoading">search</button>
+    </form>
+  </header>
+</div>
