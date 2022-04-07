@@ -3,13 +3,13 @@ Easy Weather is a web application where you can search for forecasts about anywh
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-## Development server
+## Link to this application online:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://easy-weather-angular.vercel.app/
 
-## Build
+## Pre-requisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node.js](https://nodejs.org/en/download/package-manager/), the angular cli [Angular CLI](https://angular.io/cli) and it is good to have an editor to work with code like [VS Code](https://code.visualstudio.com/Download).
 
 ## Further help
 
