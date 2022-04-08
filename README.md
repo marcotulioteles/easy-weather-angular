@@ -10,7 +10,7 @@ https://easy-weather-angular.vercel.app/
 ## Screenshots
 
 ### Desktop
-![image](https://user-images.githubusercontent.com/73261068/162352619-fbd0b6f4-ce8c-4e4b-adac-eb092933d088.png)
+![image](https://user-images.githubusercontent.com/73261068/162352938-6d3a84c8-310c-49dd-a2e4-7d826b36812d.png)
 
 ### Mobile
 ![image](https://user-images.githubusercontent.com/73261068/162352822-887d3591-eff3-4edf-821a-6aba3768d36b.png)
