@@ -1,4 +1,4 @@
-# AngularEasyWeather
+# ⛅ AngularEasyWeather
 Easy Weather is a web application where you can search for forecasts about anywhere in the world.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
