@@ -19,6 +19,11 @@ https://easy-weather-angular.vercel.app/
 
 Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Node.js](https://nodejs.org/en/download/package-manager/), the angular cli [Angular CLI](https://angular.io/cli) and it is good to have an editor to work with code like [VS Code](https://code.visualstudio.com/Download).
 
+To run this code locally, in a terminal, go to the root project folder and type the command below:
+```bash
+ ng serve
+```
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
